@@ -1,0 +1,249 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 520
+  ClientWidth = 1027
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object grp1: TGroupBox
+    Left = 0
+    Top = 0
+    Width = 1025
+    Height = 65
+    Caption = 'Filtro'
+    TabOrder = 0
+    object lbl1: TLabel
+      Left = 3
+      Top = 32
+      Width = 66
+      Height = 13
+      Caption = 'Valor do Filtro'
+    end
+    object edt_ValorFiltro: TEdit
+      Left = 75
+      Top = 29
+      Width = 462
+      Height = 21
+      TabOrder = 0
+    end
+    object btn_AdicionarFiltro: TButton
+      Left = 560
+      Top = 27
+      Width = 121
+      Height = 25
+      Caption = 'Adicionar Filtro'
+      TabOrder = 1
+    end
+    object btn_RemoverFiltro: TButton
+      Left = 687
+      Top = 27
+      Width = 121
+      Height = 25
+      Caption = 'Remover Filtro'
+      TabOrder = 2
+    end
+  end
+  object grp2: TGroupBox
+    Left = 0
+    Top = 71
+    Width = 1025
+    Height = 58
+    Caption = 'Controles de Navega'#231#227'o Edi'#231#227'o'
+    TabOrder = 1
+    object dbnvgr1: TDBNavigator
+      Left = 512
+      Top = 16
+      Width = 500
+      Height = 33
+      DataSource = dsProdutos
+      TabOrder = 0
+    end
+  end
+  object dbgrd1: TDBGrid
+    Left = 0
+    Top = 128
+    Width = 1019
+    Height = 225
+    DataSource = dsProdutos
+    TabOrder = 2
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+  end
+  object grp3: TGroupBox
+    Left = 0
+    Top = 359
+    Width = 1019
+    Height = 162
+    TabOrder = 3
+    object lbl2: TLabel
+      Left = 620
+      Top = 32
+      Width = 166
+      Height = 14
+      Caption = 'Total dos Produtos Agregados'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object btn_LimparDados: TButton
+      Left = 3
+      Top = 18
+      Width = 110
+      Height = 25
+      Caption = 'LimparDados'
+      TabOrder = 0
+      OnClick = btn_LimparDadosClick
+    end
+    object btn_IndexarID: TButton
+      Left = 3
+      Top = 49
+      Width = 110
+      Height = 25
+      Caption = 'Indexar por ID'
+      TabOrder = 1
+    end
+    object btn_IndexarNome: TButton
+      Left = 3
+      Top = 80
+      Width = 110
+      Height = 25
+      Caption = 'Indexar por Nome'
+      TabOrder = 2
+    end
+    object grp4: TGroupBox
+      Left = 119
+      Top = 3
+      Width = 146
+      Height = 105
+      Caption = 'Percorrer e Localizar Valor'
+      TabOrder = 3
+    end
+    object edt_Localizar: TEdit
+      Left = 128
+      Top = 32
+      Width = 121
+      Height = 21
+      TabOrder = 4
+    end
+    object btn_Percorrer: TButton
+      Left = 128
+      Top = 72
+      Width = 121
+      Height = 25
+      Caption = 'Percorrer'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 5
+    end
+    object grp5: TGroupBox
+      Left = 280
+      Top = 0
+      Width = 145
+      Height = 105
+      Caption = 'Locate Valor'
+      TabOrder = 6
+    end
+    object edt_Locate: TEdit
+      Left = 288
+      Top = 32
+      Width = 121
+      Height = 21
+      TabOrder = 7
+    end
+    object btn_Locate: TButton
+      Left = 288
+      Top = 72
+      Width = 121
+      Height = 25
+      Caption = 'Locate'
+      TabOrder = 8
+    end
+    object grp6: TGroupBox
+      Left = 440
+      Top = 3
+      Width = 145
+      Height = 102
+      Caption = 'FindKey Valor '
+      TabOrder = 9
+    end
+    object edt_FindKey: TEdit
+      Left = 448
+      Top = 32
+      Width = 121
+      Height = 21
+      TabOrder = 10
+    end
+    object btn_FindKey: TButton
+      Left = 448
+      Top = 72
+      Width = 121
+      Height = 25
+      Caption = 'FindKey'
+      TabOrder = 11
+    end
+    object dbedt_Total: TDBEdit
+      Left = 792
+      Top = 24
+      Width = 121
+      Height = 21
+      DataSource = dsProdutos
+      TabOrder = 12
+    end
+  end
+  object dsCdsProdutos: TClientDataSet
+    Aggregates = <>
+    AggregatesActive = True
+    Params = <>
+    OnCalcFields = dsCdsProdutosCalcFields
+    Left = 408
+    Top = 224
+    object intgrfldCdsProdutosId: TIntegerField
+      FieldName = 'Id'
+    end
+    object strngfldCdsProdutosNome: TStringField
+      FieldName = 'Nome'
+      Size = 50
+    end
+    object crncyfldCdsProdutosValor: TCurrencyField
+      FieldName = 'Valor'
+    end
+    object dsCdsProdutosQuantidade: TFloatField
+      FieldName = 'Quantidade'
+    end
+    object crncyfldCdsProdutosTotal: TCurrencyField
+      FieldKind = fkCalculated
+      FieldName = 'Total'
+      Calculated = True
+    end
+    object dsCdsProdutosProdutosTotal: TAggregateField
+      FieldName = 'ProdutosTotal'
+      Visible = True
+      Active = True
+      DisplayName = ''
+      Expression = 'SUM(Quantidade*Valor)'
+    end
+  end
+  object dsProdutos: TDataSource
+    Left = 536
+    Top = 208
+  end
+end
