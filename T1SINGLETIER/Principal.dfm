@@ -11,6 +11,7 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object grp1: TGroupBox
@@ -24,6 +25,7 @@ object Form1: TForm1
       Top = 3
       Width = 580
       Height = 41
+      DataSource = DataSource
       TabOrder = 0
     end
   end
@@ -249,12 +251,54 @@ object Form1: TForm1
     Top = 215
     Width = 1032
     Height = 194
+    DataSource = DataSource
     TabOrder = 3
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'Codigo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Descricao'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Unidade'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Fornecedor'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Data'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Quantidade'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Unitario'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Total'
+        Visible = True
+      end>
   end
   object grpTotais: TGroupBox
     Left = 0
@@ -288,6 +332,7 @@ object Form1: TForm1
       Top = 32
       Width = 121
       Height = 25
+      DataSource = DataSource
       TabOrder = 0
     end
     object dbedtValorEstoque: TDBEdit
@@ -295,7 +340,64 @@ object Form1: TForm1
       Top = 32
       Width = 121
       Height = 25
+      DataSource = DataSource
       TabOrder = 1
     end
+  end
+  object ClientDataSet: TClientDataSet
+    Aggregates = <>
+    AggregatesActive = True
+    Params = <>
+    OnCalcFields = ClientDataSetCalcFields
+    Left = 424
+    Top = 248
+    object intgrfldClientDataSetCodigo: TIntegerField
+      FieldName = 'Codigo'
+    end
+    object strngfldClientDataSetDescricao: TStringField
+      FieldName = 'Descricao'
+      Size = 50
+    end
+    object strngfldClientDataSetUnidade: TStringField
+      FieldName = 'Unidade'
+      Size = 2
+    end
+    object strngfldClientDataSetFornecedor: TStringField
+      FieldName = 'Fornecedor'
+      Size = 50
+    end
+    object ClientDataSetData: TDateField
+      FieldName = 'Data'
+    end
+    object ClientDataSetQuantidade: TFloatField
+      FieldName = 'Quantidade'
+    end
+    object crncyfldClientDataSetUnitario: TCurrencyField
+      FieldName = 'Unitario'
+    end
+    object crncyfldClientDataSetTotal: TCurrencyField
+      FieldKind = fkCalculated
+      FieldName = 'Total'
+      Calculated = True
+    end
+    object ClientDataSetEstoqueQtd: TAggregateField
+      FieldName = 'EstoqueQtd'
+      Visible = True
+      Active = True
+      DisplayName = ''
+      Expression = 'SUM(EstoqueQtd)'
+    end
+    object ClientDataSetEstoqueVlr: TAggregateField
+      FieldName = 'EstoqueVlr'
+      Visible = True
+      Active = True
+      DisplayName = ''
+      Expression = 'Quantidade*Unitario'
+    end
+  end
+  object DataSource: TDataSource
+    DataSet = ClientDataSet
+    Left = 552
+    Top = 248
   end
 end
