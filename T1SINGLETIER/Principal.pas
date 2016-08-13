@@ -10,24 +10,15 @@ uses
 type
   TForm1 = class(TForm)
     grp1: TGroupBox;
-    dbnvgr1: TDBNavigator;
     grp2: TGroupBox;
     grpCodigo: TGroupBox;
-    edt_Codigo: TEdit;
     grpDescricao: TGroupBox;
-    edtDescricao: TEdit;
     grpUnidade: TGroupBox;
-    edtUnidade: TEdit;
     grpData: TGroupBox;
-    edtData: TEdit;
     grp3: TGroupBox;
-    edtFornecedor: TEdit;
     grp4: TGroupBox;
-    edtQuantidade: TEdit;
     grp5: TGroupBox;
-    edtUnitario: TEdit;
     grpTotal: TGroupBox;
-    edtTotal: TEdit;
     grp6: TGroupBox;
     grp7: TGroupBox;
     cbbCampo: TComboBox;
@@ -36,7 +27,6 @@ type
     grpValor: TGroupBox;
     edtValor: TEdit;
     btnExecutar: TButton;
-    dbgrd1: TDBGrid;
     grpTotais: TGroupBox;
     lbl1: TLabel;
     dbedtQtdemEstoque: TDBEdit;
@@ -44,6 +34,16 @@ type
     dbedtValorEstoque: TDBEdit;
     ClientDataSet: TClientDataSet;
     DataSource: TDataSource;
+    dbedtCodigo: TDBEdit;
+    dbedtDescricao: TDBEdit;
+    dbedtUnidade: TDBEdit;
+    dbedtData: TDBEdit;
+    dbedtFornecedor: TDBEdit;
+    dbedtQuantidade: TDBEdit;
+    dbedtUnitario: TDBEdit;
+    dbedtTotal: TDBEdit;
+    dbnvgr1: TDBNavigator;
+    dbgrd1: TDBGrid;
     intgrfldClientDataSetCodigo: TIntegerField;
     strngfldClientDataSetDescricao: TStringField;
     strngfldClientDataSetUnidade: TStringField;
@@ -56,6 +56,9 @@ type
     ClientDataSetEstoqueVlr: TAggregateField;
     procedure ClientDataSetCalcFields(DataSet: TDataSet);
     procedure FormCreate(Sender: TObject);
+    procedure ClientDataSetBeforePost(DataSet: TDataSet);
+    procedure cbbAcaoChange(Sender: TObject);
+    procedure btnExecutarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -68,6 +71,153 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm1.btnExecutarClick(Sender: TObject);
+begin
+// INDEXAR
+  if cbbAcao.ItemIndex = 0 then
+    begin
+    // CAMPO CODIGO
+    if cbbCampo.ItemIndex = 0 then
+    ClientDataSet.IndexFieldNames := 'Codigo' ;
+
+    //  CAMPO DESCRIÇÃO
+    if cbbCampo.ItemIndex = 1 then
+    ClientDataSet.IndexFieldNames := 'Descricao' ;
+
+    //  CAMPO UNIDADE
+    if cbbCampo.ItemIndex = 2 then
+    ClientDataSet.IndexFieldNames := 'Unidade' ;
+
+    //  CAMPO FORNECEDOR
+    if cbbCampo.ItemIndex = 3 then
+    ClientDataSet.IndexFieldNames := 'Fornecedor' ;
+
+    //  CAMPO DATA
+    if cbbCampo.ItemIndex = 4 then
+    ClientDataSet.IndexFieldNames := 'Data' ;
+
+    //  CAMPO QUANTIDADE
+    if cbbCampo.ItemIndex = 5 then
+    ClientDataSet.IndexFieldNames := 'Quantidade' ;
+
+    //  CAMPO UNITARIO
+    if cbbCampo.ItemIndex = 6 then
+    ClientDataSet.IndexFieldNames := 'Unitario' ;
+
+
+  end;
+
+//  LOCATE
+if cbbAcao.ItemIndex = 1 then
+
+  // CAMPO CODIGO
+  if cbbCampo.ItemIndex = 0 then
+    begin
+      if ClientDataSet.Locate('Codigo', edtValor.Text, [loCaseInsensitive, loPartialKey]) then
+      begin
+        ShowMessage('Registro encontrado e posicionado!');
+      end
+      else
+        ShowMessage('Registro não encontrado!');
+
+      end;
+
+  // CAMPO DESCRICAO
+  if cbbCampo.ItemIndex = 1 then
+    begin
+      if ClientDataSet.Locate('Descricao', edtValor.Text, [loCaseInsensitive, loPartialKey]) then
+      begin
+        ShowMessage('Registro encontrado e posicionado!');
+      end
+      else
+        ShowMessage('Registro não encontrado!');
+
+      end;
+
+  // CAMPO UNIDADE
+  if cbbCampo.ItemIndex = 2 then
+    begin
+      if ClientDataSet.Locate('Unidade', edtValor.Text, [loCaseInsensitive, loPartialKey]) then
+      begin
+        ShowMessage('Registro encontrado e posicionado!');
+      end
+      else
+        ShowMessage('Registro não encontrado!');
+
+      end;
+
+  // CAMPO FORNECEDOR
+  if cbbCampo.ItemIndex = 3 then
+    begin
+      if ClientDataSet.Locate('Fornecedor', edtValor.Text, [loCaseInsensitive, loPartialKey]) then
+      begin
+        ShowMessage('Registro encontrado e posicionado!');
+      end
+      else
+        ShowMessage('Registro não encontrado!');
+
+      end;
+
+  // CAMPO DATA
+  if cbbCampo.ItemIndex = 4 then
+    begin
+      if ClientDataSet.Locate('Data', edtValor.Text, [loCaseInsensitive, loPartialKey]) then
+      begin
+        ShowMessage('Registro encontrado e posicionado!');
+      end
+      else
+        ShowMessage('Registro não encontrado!');
+
+      end;
+
+  // CAMPO QUANTIDADE
+  if cbbCampo.ItemIndex = 5 then
+    begin
+      if ClientDataSet.Locate('Quantidade', edtValor.Text, [loCaseInsensitive, loPartialKey]) then
+      begin
+        ShowMessage('Registro encontrado e posicionado!');
+      end
+      else
+        ShowMessage('Registro não encontrado!');
+
+      end;
+
+  // CAMPO UNITARIO
+  if cbbCampo.ItemIndex = 6 then
+    begin
+      if ClientDataSet.Locate('Unitario', edtValor.Text, [loCaseInsensitive, loPartialKey]) then
+      begin
+        ShowMessage('Registro encontrado e posicionado!');
+      end
+      else
+        ShowMessage('Registro não encontrado!');
+
+      end;
+
+     end;
+
+
+procedure TForm1.cbbAcaoChange(Sender: TObject);
+begin
+if (cbbAcao.ItemIndex = 0) or (cbbAcao.ItemIndex = 3) or (cbbAcao.ItemIndex = 6)  then
+  edtValor.Enabled := False
+else
+  edtValor.Enabled := True;
+
+
+
+end;
+
+procedure TForm1.ClientDataSetBeforePost(DataSet: TDataSet);
+begin
+//  CONDIÇÃO CAMPOS EM BRANCO
+
+  if (dbedtCodigo.Text = '') or (dbedtDescricao.Text = '')or (dbedtUnidade.Text = '')or (dbedtData.Text = '')or
+    (dbedtFornecedor.Text = '') or (dbedtQuantidade.Text = '') or (dbedtUnitario.Text = '')or (dbedtTotal.Text = '') then
+
+ ShowMessage('Preencha todos os campos!!');
+end;
 
 procedure TForm1.ClientDataSetCalcFields(DataSet: TDataSet);
 begin
@@ -87,6 +237,9 @@ begin
     ClientDataSet.Open
   else
     ClientDataSet.CreateDataSet;
+
+
+
 end;
 
 end.

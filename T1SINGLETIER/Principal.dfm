@@ -21,12 +21,13 @@ object Form1: TForm1
     Height = 49
     TabOrder = 0
     object dbnvgr1: TDBNavigator
-      Left = 440
+      Left = 520
       Top = 3
-      Width = 580
-      Height = 41
+      Width = 500
+      Height = 43
       DataSource = DataSource
       TabOrder = 0
+      TabStop = True
     end
   end
   object grp2: TGroupBox
@@ -43,27 +44,13 @@ object Form1: TForm1
       Caption = 'Codigo'
       TabOrder = 0
     end
-    object edt_Codigo: TEdit
-      Left = 3
-      Top = 16
-      Width = 134
-      Height = 21
-      TabOrder = 1
-    end
     object grpDescricao: TGroupBox
       Left = 143
       Top = 0
       Width = 738
       Height = 41
       Caption = 'Descri'#231#227'o'
-      TabOrder = 2
-    end
-    object edtDescricao: TEdit
-      Left = 144
-      Top = 16
-      Width = 729
-      Height = 21
-      TabOrder = 3
+      TabOrder = 1
     end
     object grpUnidade: TGroupBox
       Left = 879
@@ -71,14 +58,7 @@ object Form1: TForm1
       Width = 130
       Height = 39
       Caption = 'Unidade'
-      TabOrder = 4
-    end
-    object edtUnidade: TEdit
-      Left = 879
-      Top = 16
-      Width = 121
-      Height = 21
-      TabOrder = 5
+      TabOrder = 2
     end
     object grpData: TGroupBox
       Left = 0
@@ -86,14 +66,7 @@ object Form1: TForm1
       Width = 137
       Height = 38
       Caption = 'Data'
-      TabOrder = 6
-    end
-    object edtData: TEdit
-      Left = 3
-      Top = 60
-      Width = 134
-      Height = 21
-      TabOrder = 7
+      TabOrder = 3
     end
     object grp3: TGroupBox
       Left = 143
@@ -101,14 +74,7 @@ object Form1: TForm1
       Width = 394
       Height = 38
       Caption = 'Fornecedor'
-      TabOrder = 8
-    end
-    object edtFornecedor: TEdit
-      Left = 143
-      Top = 60
-      Width = 394
-      Height = 21
-      TabOrder = 9
+      TabOrder = 4
     end
     object grp4: TGroupBox
       Left = 543
@@ -116,14 +82,7 @@ object Form1: TForm1
       Width = 121
       Height = 38
       Caption = 'Quantidade (+ ou -)'
-      TabOrder = 10
-    end
-    object edtQuantidade: TEdit
-      Left = 543
-      Top = 60
-      Width = 121
-      Height = 21
-      TabOrder = 11
+      TabOrder = 5
     end
     object grp5: TGroupBox
       Left = 670
@@ -131,14 +90,7 @@ object Form1: TForm1
       Width = 121
       Height = 38
       Caption = 'Unitario'
-      TabOrder = 12
-    end
-    object edtUnitario: TEdit
-      Left = 670
-      Top = 60
-      Width = 203
-      Height = 21
-      TabOrder = 13
+      TabOrder = 6
     end
     object grpTotal: TGroupBox
       Left = 879
@@ -146,14 +98,43 @@ object Form1: TForm1
       Width = 130
       Height = 34
       Caption = 'Total'
-      TabOrder = 14
+      TabOrder = 7
     end
-    object edtTotal: TEdit
-      Left = 879
+    object dbedtData: TDBEdit
+      Left = 3
       Top = 60
       Width = 121
       Height = 21
-      TabOrder = 15
+      DataField = 'Data'
+      DataSource = DataSource
+      TabOrder = 8
+    end
+    object dbedtFornecedor: TDBEdit
+      Left = 143
+      Top = 60
+      Width = 378
+      Height = 21
+      DataField = 'Fornecedor'
+      DataSource = DataSource
+      TabOrder = 9
+    end
+    object dbedtQuantidade: TDBEdit
+      Left = 543
+      Top = 60
+      Width = 121
+      Height = 21
+      DataField = 'Quantidade'
+      DataSource = DataSource
+      TabOrder = 10
+    end
+    object dbedtUnitario: TDBEdit
+      Left = 680
+      Top = 60
+      Width = 185
+      Height = 21
+      DataField = 'Unitario'
+      DataSource = DataSource
+      TabOrder = 11
     end
   end
   object grp6: TGroupBox
@@ -176,7 +157,6 @@ object Form1: TForm1
       Top = 32
       Width = 145
       Height = 21
-      ItemIndex = 0
       TabOrder = 1
       Text = 'Codigo'
       Items.Strings = (
@@ -187,9 +167,8 @@ object Form1: TForm1
         'Data'
         'Quantidade'
         'Unit'#225'rio'
-        'Total'
-        'Quantidade Estoque'
-        'Valor Estoque')
+        ''
+        '')
     end
     object grpAcao: TGroupBox
       Left = 168
@@ -204,9 +183,9 @@ object Form1: TForm1
       Top = 32
       Width = 145
       Height = 21
-      ItemIndex = 0
       TabOrder = 3
       Text = 'Indexar'
+      OnChange = cbbAcaoChange
       Items.Strings = (
         'Indexar'
         'Locate'
@@ -229,6 +208,7 @@ object Form1: TForm1
       Top = 32
       Width = 345
       Height = 21
+      Enabled = False
       TabOrder = 5
     end
     object btnExecutar: TButton
@@ -244,61 +224,8 @@ object Form1: TForm1
       Font.Style = []
       ParentFont = False
       TabOrder = 6
+      OnClick = btnExecutarClick
     end
-  end
-  object dbgrd1: TDBGrid
-    Left = 0
-    Top = 215
-    Width = 1032
-    Height = 194
-    DataSource = DataSource
-    TabOrder = 3
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
-    Columns = <
-      item
-        Expanded = False
-        FieldName = 'Codigo'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Descricao'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Unidade'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Fornecedor'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Data'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Quantidade'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Unitario'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Total'
-        Visible = True
-      end>
   end
   object grpTotais: TGroupBox
     Left = 0
@@ -306,7 +233,7 @@ object Form1: TForm1
     Width = 1032
     Height = 74
     Caption = 'Totais'
-    TabOrder = 4
+    TabOrder = 3
     object lbl1: TLabel
       Left = 543
       Top = 40
@@ -331,7 +258,7 @@ object Form1: TForm1
       Left = 664
       Top = 32
       Width = 121
-      Height = 25
+      Height = 21
       DataSource = DataSource
       TabOrder = 0
     end
@@ -339,15 +266,109 @@ object Form1: TForm1
       Left = 887
       Top = 32
       Width = 121
-      Height = 25
+      Height = 21
       DataSource = DataSource
       TabOrder = 1
     end
   end
+  object dbedtCodigo: TDBEdit
+    Left = 8
+    Top = 71
+    Width = 121
+    Height = 21
+    DataField = 'Codigo'
+    DataSource = DataSource
+    TabOrder = 4
+  end
+  object dbedtDescricao: TDBEdit
+    Left = 143
+    Top = 71
+    Width = 722
+    Height = 21
+    DataField = 'Descricao'
+    DataSource = DataSource
+    TabOrder = 5
+  end
+  object dbedtUnidade: TDBEdit
+    Left = 879
+    Top = 71
+    Width = 121
+    Height = 21
+    DataField = 'Unidade'
+    DataSource = DataSource
+    TabOrder = 6
+  end
+  object dbedtTotal: TDBEdit
+    Left = 879
+    Top = 115
+    Width = 121
+    Height = 21
+    DataField = 'Total'
+    DataSource = DataSource
+    TabOrder = 7
+  end
+  object dbgrd1: TDBGrid
+    Left = 0
+    Top = 205
+    Width = 1032
+    Height = 196
+    DataSource = DataSource
+    TabOrder = 8
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'Codigo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Descricao'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Unidade'
+        Width = 64
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Fornecedor'
+        Width = 64
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Data'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Quantidade'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Unitario'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Total'
+        Visible = True
+      end>
+  end
   object ClientDataSet: TClientDataSet
     Aggregates = <>
     AggregatesActive = True
+    IndexFieldNames = 'Fornecedor'
     Params = <>
+    BeforePost = ClientDataSetBeforePost
     OnCalcFields = ClientDataSetCalcFields
     Left = 424
     Top = 248
@@ -385,14 +406,13 @@ object Form1: TForm1
       Visible = True
       Active = True
       DisplayName = ''
-      Expression = 'SUM(EstoqueQtd)'
+      Expression = 'SUM(Quantidade)'
     end
     object ClientDataSetEstoqueVlr: TAggregateField
       FieldName = 'EstoqueVlr'
       Visible = True
       Active = True
       DisplayName = ''
-      Expression = 'Quantidade*Unitario'
     end
   end
   object DataSource: TDataSource
