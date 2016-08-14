@@ -73,6 +73,8 @@ implementation
 {$R *.dfm}
 
 procedure TForm1.btnExecutarClick(Sender: TObject);
+var
+  vEncontrou: Boolean;
 begin
 // INDEXAR
   if cbbAcao.ItemIndex = 0 then
@@ -110,8 +112,14 @@ begin
 
 //  LOCATE
 if cbbAcao.ItemIndex = 1 then
+begin
 
-  // CAMPO CODIGO
+if edtValor.Text = '' then
+
+  ShowMessage('Preencha o campo valor!')
+
+ else
+   // CAMPO CODIGO
   if cbbCampo.ItemIndex = 0 then
     begin
       if ClientDataSet.Locate('Codigo', edtValor.Text, [loCaseInsensitive, loPartialKey]) then
@@ -193,9 +201,133 @@ if cbbAcao.ItemIndex = 1 then
       else
         ShowMessage('Registro não encontrado!');
 
-      end;
+   end;
+end;
 
-     end;
+//  FINDKEY
+ if cbbAcao.ItemIndex = 2 then
+
+ begin
+  if edtValor.Text = '' then
+      ShowMessage('Preencha o campo Valor!');
+  begin
+    //  CODIGO
+    if cbbCampo.ItemIndex = 0 then
+    begin
+       ClientDataSet.IndexFieldNames:= 'Codigo';
+       ClientDataSet.FindKey([edtValor.Text]);
+       if ClientDataSet.FindKey([edtValor.Text]) = True then
+        ShowMessage('Valor encontrado e posicionado!')
+       else
+       ShowMessage('Valor não encontrado!');
+    end;
+
+    //  DESCRIÇÃO
+    if cbbCampo.ItemIndex = 1 then
+    begin
+       ClientDataSet.IndexFieldNames:= 'Descricao';
+       ClientDataSet.FindKey([edtValor.Text]);
+       if ClientDataSet.FindKey([edtValor.Text]) = True then
+        ShowMessage('Valor encontrado e posicionado!')
+       else
+       ShowMessage('Valor não encontrado!');
+    end;
+
+    //  UNIDADE
+    if cbbCampo.ItemIndex = 2 then
+    begin
+       ClientDataSet.IndexFieldNames:= 'Unidade';
+       ClientDataSet.FindKey([edtValor.Text]);
+       if ClientDataSet.FindKey([edtValor.Text]) = True then
+        ShowMessage('Valor encontrado e posicionado!')
+       else
+       ShowMessage('Valor não encontrado!');
+    end;
+
+    //  FORNECEDOR
+    if cbbCampo.ItemIndex = 3 then
+    begin
+       ClientDataSet.IndexFieldNames:= 'Fornecedor';
+       ClientDataSet.FindKey([edtValor.Text]);
+       if ClientDataSet.FindKey([edtValor.Text]) = True then
+        ShowMessage('Valor encontrado e posicionado!')
+       else
+       ShowMessage('Valor não encontrado!');
+    end;
+
+    //  DATA
+    if cbbCampo.ItemIndex = 4 then
+    begin
+       ClientDataSet.IndexFieldNames:= 'Data';
+       ClientDataSet.FindKey([edtValor.Text]);
+       if ClientDataSet.FindKey([edtValor.Text]) = True then
+        ShowMessage('Valor encontrado e posicionado!')
+       else
+       ShowMessage('Valor não encontrado!');
+    end;
+
+    //  QUANTIDADE
+    if cbbCampo.ItemIndex = 5 then
+    begin
+       ClientDataSet.IndexFieldNames:= 'Quantidade';
+       ClientDataSet.FindKey([edtValor.Text]);
+       if ClientDataSet.FindKey([edtValor.Text]) = True then
+        ShowMessage('Valor encontrado e posicionado!')
+       else
+       ShowMessage('Valor não encontrado!');
+    end;
+
+    //  UNITARIO
+    if cbbCampo.ItemIndex = 6 then
+    begin
+       ClientDataSet.IndexFieldNames:= 'Unitario';
+       ClientDataSet.FindKey([edtValor.Text]);
+       if ClientDataSet.FindKey([edtValor.Text]) = True then
+        ShowMessage('Valor encontrado e posicionado!')
+       else
+       ShowMessage('Valor não encontrado!');
+    end;
+  end;
+
+  end;
+
+ //  LIMPAR
+  if cbbAcao.ItemIndex = 3 then
+   ClientDataSet.EmptyDataSet;
+
+ // PERCORRER
+  if cbbAcao.ItemIndex = 4 then
+  begin
+    if cbbCampo.ItemIndex = 0 then
+    begin
+      vEncontrou := False;
+      ClientDataSet.DisableControls;
+      try
+        ClientDataSet.First;
+        while not ClientDataSet.Eof do
+        begin
+          if ClientDataSet.Fields['Codigo']= edtValor.Text  then
+          begin
+            vEncontrou := True;
+            Break;
+            ShowMessage('Registro Encontrado!');
+          end;
+          ClientDataSet.Next;
+        end;
+      finally
+         ClientDataSet.EnableControls;
+        end;
+        if (ClientDataSet.Fields('Codigo')= edtValor.Text) = False   then
+          ShowMessage('Registro não encontrado!');
+
+
+    end;
+  end;
+
+
+
+
+ end;
 
 
 procedure TForm1.cbbAcaoChange(Sender: TObject);

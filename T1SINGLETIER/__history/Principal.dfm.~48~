@@ -1,0 +1,425 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 480
+  ClientWidth = 1040
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object grp1: TGroupBox
+    Left = 0
+    Top = 0
+    Width = 1032
+    Height = 49
+    TabOrder = 0
+    object dbnvgr1: TDBNavigator
+      Left = 520
+      Top = 3
+      Width = 500
+      Height = 43
+      DataSource = DataSource
+      TabOrder = 0
+      TabStop = True
+    end
+  end
+  object grp2: TGroupBox
+    Left = 0
+    Top = 55
+    Width = 1032
+    Height = 90
+    TabOrder = 1
+    object grpCodigo: TGroupBox
+      Left = 0
+      Top = 0
+      Width = 137
+      Height = 41
+      Caption = 'Codigo'
+      TabOrder = 0
+    end
+    object grpDescricao: TGroupBox
+      Left = 143
+      Top = 0
+      Width = 738
+      Height = 41
+      Caption = 'Descri'#231#227'o'
+      TabOrder = 1
+    end
+    object grpUnidade: TGroupBox
+      Left = 879
+      Top = 2
+      Width = 130
+      Height = 39
+      Caption = 'Unidade'
+      TabOrder = 2
+    end
+    object grpData: TGroupBox
+      Left = 0
+      Top = 43
+      Width = 137
+      Height = 38
+      Caption = 'Data'
+      TabOrder = 3
+    end
+    object grp3: TGroupBox
+      Left = 143
+      Top = 43
+      Width = 394
+      Height = 38
+      Caption = 'Fornecedor'
+      TabOrder = 4
+    end
+    object grp4: TGroupBox
+      Left = 543
+      Top = 43
+      Width = 121
+      Height = 38
+      Caption = 'Quantidade (+ ou -)'
+      TabOrder = 5
+    end
+    object grp5: TGroupBox
+      Left = 670
+      Top = 43
+      Width = 121
+      Height = 38
+      Caption = 'Unitario'
+      TabOrder = 6
+    end
+    object grpTotal: TGroupBox
+      Left = 879
+      Top = 47
+      Width = 130
+      Height = 34
+      Caption = 'Total'
+      TabOrder = 7
+    end
+    object dbedtData: TDBEdit
+      Left = 3
+      Top = 60
+      Width = 121
+      Height = 21
+      DataField = 'Data'
+      DataSource = DataSource
+      TabOrder = 8
+    end
+    object dbedtFornecedor: TDBEdit
+      Left = 143
+      Top = 60
+      Width = 378
+      Height = 21
+      DataField = 'Fornecedor'
+      DataSource = DataSource
+      TabOrder = 9
+    end
+    object dbedtQuantidade: TDBEdit
+      Left = 543
+      Top = 60
+      Width = 121
+      Height = 21
+      DataField = 'Quantidade'
+      DataSource = DataSource
+      TabOrder = 10
+    end
+    object dbedtUnitario: TDBEdit
+      Left = 680
+      Top = 60
+      Width = 185
+      Height = 21
+      DataField = 'Unitario'
+      DataSource = DataSource
+      TabOrder = 11
+    end
+  end
+  object grp6: TGroupBox
+    Left = 0
+    Top = 142
+    Width = 1032
+    Height = 67
+    Caption = 'Pesquisa, Ordena'#231#227'o e Filtragem'
+    TabOrder = 2
+    object grp7: TGroupBox
+      Left = 3
+      Top = 16
+      Width = 145
+      Height = 41
+      Caption = 'Campo'
+      TabOrder = 0
+    end
+    object cbbCampo: TComboBox
+      Left = 3
+      Top = 32
+      Width = 145
+      Height = 21
+      TabOrder = 1
+      Text = 'Codigo'
+      Items.Strings = (
+        'Codigo'
+        'Descri'#231#227'o'
+        'Unidade'
+        'Fornecedor'
+        'Data'
+        'Quantidade'
+        'Unit'#225'rio'
+        'Total'
+        'Quantidade Estoque'
+        'Valor Estoque')
+    end
+    object grpAcao: TGroupBox
+      Left = 168
+      Top = 16
+      Width = 145
+      Height = 41
+      Caption = 'A'#231#227'o'
+      TabOrder = 2
+    end
+    object cbbAcao: TComboBox
+      Left = 168
+      Top = 32
+      Width = 145
+      Height = 21
+      ItemIndex = 0
+      TabOrder = 3
+      Text = 'Indexar'
+      OnChange = cbbAcaoChange
+      Items.Strings = (
+        'Indexar'
+        'Locate'
+        'FindKey'
+        'Limpar'
+        'Percorrer'
+        'Filtrar'
+        'Limpar Filtro')
+    end
+    object grpValor: TGroupBox
+      Left = 319
+      Top = 16
+      Width = 354
+      Height = 41
+      Caption = 'Valor'
+      TabOrder = 4
+    end
+    object edtValor: TEdit
+      Left = 319
+      Top = 32
+      Width = 345
+      Height = 21
+      Enabled = False
+      TabOrder = 5
+    end
+    object btnExecutar: TButton
+      Left = 688
+      Top = 24
+      Width = 289
+      Height = 33
+      Caption = 'Executar'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 6
+      OnClick = btnExecutarClick
+    end
+  end
+  object grpTotais: TGroupBox
+    Left = 0
+    Top = 407
+    Width = 1032
+    Height = 74
+    Caption = 'Totais'
+    TabOrder = 3
+    object lbl1: TLabel
+      Left = 543
+      Top = 40
+      Width = 115
+      Height = 13
+      Caption = 'Quantidade em Estoque'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object lbl2: TLabel
+      Left = 800
+      Top = 40
+      Width = 81
+      Height = 13
+      Caption = 'Valor do Estoque'
+    end
+    object dbedtQtdemEstoque: TDBEdit
+      Left = 664
+      Top = 32
+      Width = 121
+      Height = 21
+      DataSource = DataSource
+      TabOrder = 0
+    end
+    object dbedtValorEstoque: TDBEdit
+      Left = 887
+      Top = 32
+      Width = 121
+      Height = 21
+      DataSource = DataSource
+      TabOrder = 1
+    end
+  end
+  object dbedtCodigo: TDBEdit
+    Left = 8
+    Top = 71
+    Width = 121
+    Height = 21
+    DataField = 'Codigo'
+    DataSource = DataSource
+    TabOrder = 4
+  end
+  object dbedtDescricao: TDBEdit
+    Left = 143
+    Top = 71
+    Width = 722
+    Height = 21
+    DataField = 'Descricao'
+    DataSource = DataSource
+    TabOrder = 5
+  end
+  object dbedtUnidade: TDBEdit
+    Left = 879
+    Top = 71
+    Width = 121
+    Height = 21
+    DataField = 'Unidade'
+    DataSource = DataSource
+    TabOrder = 6
+  end
+  object dbedtTotal: TDBEdit
+    Left = 879
+    Top = 115
+    Width = 121
+    Height = 21
+    DataField = 'Total'
+    DataSource = DataSource
+    TabOrder = 7
+  end
+  object dbgrd1: TDBGrid
+    Left = 0
+    Top = 205
+    Width = 1032
+    Height = 196
+    DataSource = DataSource
+    TabOrder = 8
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'Codigo'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Descricao'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Unidade'
+        Width = 64
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Fornecedor'
+        Width = 64
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Data'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Quantidade'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Unitario'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'Total'
+        Visible = True
+      end>
+  end
+  object ClientDataSet: TClientDataSet
+    Aggregates = <>
+    AggregatesActive = True
+    IndexFieldNames = 'Fornecedor'
+    Params = <>
+    BeforePost = ClientDataSetBeforePost
+    OnCalcFields = ClientDataSetCalcFields
+    Left = 424
+    Top = 248
+    object intgrfldClientDataSetCodigo: TIntegerField
+      FieldName = 'Codigo'
+    end
+    object strngfldClientDataSetDescricao: TStringField
+      FieldName = 'Descricao'
+      Size = 50
+    end
+    object strngfldClientDataSetUnidade: TStringField
+      FieldName = 'Unidade'
+      Size = 2
+    end
+    object strngfldClientDataSetFornecedor: TStringField
+      FieldName = 'Fornecedor'
+      Size = 50
+    end
+    object ClientDataSetData: TDateField
+      FieldName = 'Data'
+    end
+    object ClientDataSetQuantidade: TFloatField
+      FieldName = 'Quantidade'
+    end
+    object crncyfldClientDataSetUnitario: TCurrencyField
+      FieldName = 'Unitario'
+    end
+    object crncyfldClientDataSetTotal: TCurrencyField
+      FieldKind = fkCalculated
+      FieldName = 'Total'
+      Calculated = True
+    end
+    object ClientDataSetEstoqueQtd: TAggregateField
+      FieldName = 'EstoqueQtd'
+      Visible = True
+      Active = True
+      DisplayName = ''
+      Expression = 'SUM(Quantidade)'
+    end
+    object ClientDataSetEstoqueVlr: TAggregateField
+      FieldName = 'EstoqueVlr'
+      Visible = True
+      Active = True
+      DisplayName = ''
+    end
+  end
+  object DataSource: TDataSource
+    DataSet = ClientDataSet
+    Left = 552
+    Top = 248
+  end
+end

@@ -157,6 +157,7 @@ object Form1: TForm1
       Top = 32
       Width = 145
       Height = 21
+      ItemIndex = 0
       TabOrder = 1
       Text = 'Codigo'
       Items.Strings = (
@@ -183,6 +184,7 @@ object Form1: TForm1
       Top = 32
       Width = 145
       Height = 21
+      ItemIndex = 0
       TabOrder = 3
       Text = 'Indexar'
       OnChange = cbbAcaoChange
@@ -259,6 +261,7 @@ object Form1: TForm1
       Top = 32
       Width = 121
       Height = 21
+      DataField = 'EstoqueQtd'
       DataSource = DataSource
       TabOrder = 0
     end
@@ -267,6 +270,7 @@ object Form1: TForm1
       Top = 32
       Width = 121
       Height = 21
+      DataField = 'EstoqueVlr'
       DataSource = DataSource
       TabOrder = 1
     end
@@ -333,13 +337,11 @@ object Form1: TForm1
       item
         Expanded = False
         FieldName = 'Unidade'
-        Width = 64
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Fornecedor'
-        Width = 64
         Visible = True
       end
       item
