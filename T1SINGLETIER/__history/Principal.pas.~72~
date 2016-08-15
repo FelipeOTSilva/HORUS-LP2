@@ -73,7 +73,8 @@ implementation
 {$R *.dfm}
 
 procedure TForm1.btnExecutarClick(Sender: TObject);
-
+var
+  vEncontrou: Boolean;
 begin
 // INDEXAR
   if cbbAcao.ItemIndex = 0 then
@@ -290,10 +291,119 @@ end;
 
   end;
 
-  //  LIMPAR
-  if cbbAcao = 3 then
+ //  LIMPAR
+  if cbbAcao.ItemIndex = 3 then
+   ClientDataSet.EmptyDataSet;
 
-    ClientDataSet.ClearFields;
+ // PERCORRER
+  if cbbAcao.ItemIndex = 4 then
+    if edtValor.Text = '' then
+    begin
+     ShowMessage('Preencher o campo valor!');
+    begin
+      if cbbCampo.ItemIndex = 0 then
+      begin
+        vEncontrou := False;
+        ClientDataSet.DisableControls;
+        try
+          ClientDataSet.First;
+          while not ClientDataSet.Eof do
+          begin
+            if (ClientDataSet.FieldByName('Codigo').Value = edtValor.Text)  then
+            begin
+              vEncontrou := True;
+              ShowMessage('Registro Encontrado!');
+              Break;
+
+            end;
+            ClientDataSet.Next;
+          end;
+        finally
+           ClientDataSet.EnableControls;
+          end;
+          if (ClientDataSet.FieldByName('Codigo').Value = edtValor.Text) = False   then
+            ShowMessage('Registro não encontrado!');
+
+    end;
+    end;
+  end;
+
+//  FILTRAR
+  if cbbAcao.ItemIndex = 5 then
+  begin
+    if edtValor.Text = '' then
+    ShowMessage('Preencha o campo valor!');
+
+    //  CODIGO
+    if cbbCampo.ItemIndex = 0 then
+    begin
+      ClientDataSet.Filtered := False;
+      ClientDataSet.Filter :=  'Codigo =' +  edtValor.Text;
+      ClientDataSet.Filtered := True;
+
+    end;
+
+    //  DESCRIÇÃO
+    if cbbCampo.ItemIndex = 1 then
+    begin
+      ClientDataSet.Filtered := False;
+      ClientDataSet.Filter :=  'Descricao =' +  edtValor.Text;
+      ClientDataSet.Filtered := True;
+
+    end;
+
+    //  UNIDADE
+    if cbbCampo.ItemIndex = 2 then
+    begin
+      ClientDataSet.Filtered := False;
+      ClientDataSet.Filter :=  'Unidade =' +  edtValor.Text;
+      ClientDataSet.Filtered := True;
+
+    end;
+
+    //  FORNECEDOR
+    if cbbCampo.ItemIndex = 3 then
+    begin
+      ClientDataSet.Filtered := False;
+      ClientDataSet.Filter :=  'Fornecedor =' +  edtValor.Text;
+      ClientDataSet.Filtered := True;
+
+    end;
+
+
+    //  DATA
+    if cbbCampo.ItemIndex = 4 then
+    begin
+      ClientDataSet.Filtered := False;
+      ClientDataSet.Filter :=  'Data =' +  edtValor.Text;
+      ClientDataSet.Filtered := True;
+
+    end;
+
+    //  QUANTIDADE
+    if cbbCampo.ItemIndex = 5 then
+    begin
+      ClientDataSet.Filtered := False;
+      ClientDataSet.Filter := 'Quantidade =' +  edtValor.Text;
+      ClientDataSet.Filtered := True;
+
+    end;
+
+    //  UNIDADE
+    if cbbCampo.ItemIndex = 6 then
+    begin
+      ClientDataSet.Filtered := False;
+      ClientDataSet.Filter :=  'Unidade =' +  edtValor.Text;
+      ClientDataSet.Filtered := True;
+
+    end;
+  end;
+
+
+//  LIMPAR FILTRO
+  if cbbAcao.ItemIndex = 6 then
+    ClientDataSet.Filtered := False;
+
 
 
  end;

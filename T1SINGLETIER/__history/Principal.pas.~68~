@@ -73,7 +73,8 @@ implementation
 {$R *.dfm}
 
 procedure TForm1.btnExecutarClick(Sender: TObject);
-
+var
+  vEncontrou: Boolean;
 begin
 // INDEXAR
   if cbbAcao.ItemIndex = 0 then
@@ -111,6 +112,7 @@ begin
 
 //  LOCATE
 if cbbAcao.ItemIndex = 1 then
+begin
 
 if edtValor.Text = '' then
 
@@ -200,10 +202,11 @@ if edtValor.Text = '' then
         ShowMessage('Registro não encontrado!');
 
    end;
+end;
 
 //  FINDKEY
  if cbbAcao.ItemIndex = 2 then
- valida:=False;
+
  begin
   if edtValor.Text = '' then
       ShowMessage('Preencha o campo Valor!');
@@ -287,6 +290,44 @@ if edtValor.Text = '' then
   end;
 
   end;
+
+ //  LIMPAR
+  if cbbAcao.ItemIndex = 3 then
+   ClientDataSet.EmptyDataSet;
+
+ // PERCORRER
+  if cbbAcao.ItemIndex = 4 then
+    if edtValor.Text = '' then
+    begin
+     ShowMessage('Preencher o campo valor!');
+    begin
+      if cbbCampo.ItemIndex = 0 then
+      begin
+        vEncontrou := False;
+        ClientDataSet.DisableControls;
+        try
+          ClientDataSet.First;
+          while not ClientDataSet.Eof do
+          begin
+            if (ClientDataSet.FieldByName('Codigo').Value = edtValor.Text)  then
+            begin
+              vEncontrou := True;
+              ShowMessage('Registro Encontrado!');
+              Break;
+
+            end;
+            ClientDataSet.Next;
+          end;
+        finally
+           ClientDataSet.EnableControls;
+          end;
+          if (ClientDataSet.FieldByName('Codigo').Value = edtValor.Text) = False   then
+            ShowMessage('Registro não encontrado!');
+
+    end;
+    end;
+  end;
+
 
 
 

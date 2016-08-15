@@ -73,7 +73,8 @@ implementation
 {$R *.dfm}
 
 procedure TForm1.btnExecutarClick(Sender: TObject);
-
+var
+  vEncontrou: Boolean;
 begin
 // INDEXAR
   if cbbAcao.ItemIndex = 0 then
@@ -290,8 +291,41 @@ end;
 
   end;
 
-  //  LIMPAR
-    ClientDataSet.ClearFields;
+ //  LIMPAR
+  if cbbAcao.ItemIndex = 3 then
+   ClientDataSet.EmptyDataSet;
+
+ // PERCORRER
+  if cbbAcao.ItemIndex = 4 then
+  begin
+    if cbbCampo.ItemIndex = 0 then
+    begin
+      vEncontrou := False;
+      ClientDataSet.DisableControls;
+      try
+        ClientDataSet.First;
+        while not ClientDataSet.Eof do
+        begin
+          if (ClientDataSet.FieldByName('Codigo').Value = edtValor.Text)  then
+          begin
+            vEncontrou := True;
+            ShowMessage('Registro Encontrado!');
+            Break;
+
+          end;
+          ClientDataSet.Next;
+        end;
+      finally
+         ClientDataSet.EnableControls;
+        end;
+        if (ClientDataSet.FieldByName('Codigo').Value = edtValor.Text) = False   then
+          ShowMessage('Registro não encontrado!');
+
+
+    end;
+  end;
+
+
 
 
  end;

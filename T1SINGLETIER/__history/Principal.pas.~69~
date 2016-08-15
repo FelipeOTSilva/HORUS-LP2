@@ -73,7 +73,8 @@ implementation
 {$R *.dfm}
 
 procedure TForm1.btnExecutarClick(Sender: TObject);
-
+var
+  vEncontrou: Boolean;
 begin
 // INDEXAR
   if cbbAcao.ItemIndex = 0 then
@@ -290,9 +291,58 @@ end;
 
   end;
 
-  //  LIMPAR
+ //  LIMPAR
   if cbbAcao.ItemIndex = 3 then
-   ClientDataSet.ClearFields;
+   ClientDataSet.EmptyDataSet;
+
+ // PERCORRER
+  if cbbAcao.ItemIndex = 4 then
+    if edtValor.Text = '' then
+    begin
+     ShowMessage('Preencher o campo valor!');
+    begin
+      if cbbCampo.ItemIndex = 0 then
+      begin
+        vEncontrou := False;
+        ClientDataSet.DisableControls;
+        try
+          ClientDataSet.First;
+          while not ClientDataSet.Eof do
+          begin
+            if (ClientDataSet.FieldByName('Codigo').Value = edtValor.Text)  then
+            begin
+              vEncontrou := True;
+              ShowMessage('Registro Encontrado!');
+              Break;
+
+            end;
+            ClientDataSet.Next;
+          end;
+        finally
+           ClientDataSet.EnableControls;
+          end;
+          if (ClientDataSet.FieldByName('Codigo').Value = edtValor.Text) = False   then
+            ShowMessage('Registro não encontrado!');
+
+    end;
+    end;
+  end;
+
+//  FILTRAR
+  if cbbAcao.ItemIndex = 5 then
+  begin
+    if edtValor.Text = '' then
+    ShowMessage('Preencha o campo valor!');
+
+    if cbbCampo.ItemIndex = 0 then
+    begin
+      ClientDataSet.Filtered := False;
+      ClientDataSet.Filtered := edtValor.Text;
+      ClientDataSet.Filtered := True;
+    end;
+
+  end;
+
 
 
  end;

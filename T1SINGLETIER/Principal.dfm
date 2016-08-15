@@ -415,6 +415,7 @@ object Form1: TForm1
       Visible = True
       Active = True
       DisplayName = ''
+      Expression = 'SUM(Quantidade * Unitario)'
     end
   end
   object DataSource: TDataSource
