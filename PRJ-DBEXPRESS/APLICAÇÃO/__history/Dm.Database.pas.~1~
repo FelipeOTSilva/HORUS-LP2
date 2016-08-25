@@ -1,0 +1,25 @@
+unit Dm.Database;
+
+interface
+
+uses
+  System.SysUtils, System.Classes;
+
+type
+  TDmDatabase = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DmDatabase: TDmDatabase;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

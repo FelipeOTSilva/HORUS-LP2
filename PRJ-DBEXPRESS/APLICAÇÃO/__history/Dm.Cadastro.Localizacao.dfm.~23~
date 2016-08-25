@@ -1,0 +1,156 @@
+object DmCadastroLocalizacao: TDmCadastroLocalizacao
+  OldCreateOrder = False
+  Height = 177
+  Width = 172
+  object SdsPais: TSQLDataSet
+    CommandText = 'SELECT PAI_CODIGO, PAI_NOME, PAI_SIGLA,'#13#10'PAI_BACEN FROM PAIS'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = DmDatabase.Conexao
+    Left = 8
+    object intgrfldSdsPaisPAI_CODIGO: TIntegerField
+      DisplayLabel = 'CODIGO'
+      FieldName = 'PAI_CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object strngfldSdsPaisPAI_NOME: TStringField
+      DisplayLabel = 'NOME'
+      FieldName = 'PAI_NOME'
+      ProviderFlags = [pfInUpdate]
+      Size = 60
+    end
+    object strngfldSdsPaisPAI_SIGLA: TStringField
+      DisplayLabel = 'SIGLA'
+      FieldName = 'PAI_SIGLA'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+      Size = 3
+    end
+    object intgrfldSdsPaisPAI_BACEN: TIntegerField
+      DisplayLabel = 'BACEN'
+      FieldName = 'PAI_BACEN'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+    end
+  end
+  object DspPais: TDataSetProvider
+    DataSet = SdsPais
+    Options = [poAllowCommandText]
+    UpdateMode = upWhereKeyOnly
+    Left = 8
+    Top = 48
+  end
+  object dsCdsPais: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DspPais'
+    AfterPost = dsCdsPaisAfterPost
+    AfterDelete = dsCdsPaisAfterDelete
+    Left = 8
+    Top = 104
+    object intgrfldCdsPaisPAI_CODIGO: TIntegerField
+      DisplayLabel = 'CODIGO'
+      FieldName = 'PAI_CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object strngfldCdsPaisPAI_NOME: TStringField
+      DisplayLabel = 'NOME'
+      FieldName = 'PAI_NOME'
+      ProviderFlags = [pfInUpdate]
+      Size = 60
+    end
+    object strngfldCdsPaisPAI_SIGLA: TStringField
+      DisplayLabel = 'SIGLA'
+      FieldName = 'PAI_SIGLA'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+      Size = 3
+    end
+    object intgrfldCdsPaisPAI_BACEN: TIntegerField
+      DisplayLabel = 'BACEN'
+      FieldName = 'PAI_BACEN'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+    end
+  end
+  object SdsEstado: TSQLDataSet
+    CommandText = 
+      'select EST_CODIGO, EST_NOME, EST_PAI_CODIGO, EST_SIGLA from ESTA' +
+      'DO'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = DmDatabase.Conexao
+    Left = 72
+    object intgrfldSdsEstadoEST_CODIGO: TIntegerField
+      DisplayLabel = 'CODIGO'
+      FieldName = 'EST_CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object strngfldSdsEstadoEST_NOME: TStringField
+      DisplayLabel = 'NOME ESTADO'
+      FieldName = 'EST_NOME'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+      Size = 60
+    end
+    object intgrfldSdsEstadoEST_PAI_CODIGO: TIntegerField
+      DisplayLabel = 'CODIGO PAIS'
+      FieldName = 'EST_PAI_CODIGO'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+    end
+    object strngfldSdsEstadoEST_SIGLA: TStringField
+      DisplayLabel = 'SIGLA'
+      FieldName = 'EST_SIGLA'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+      Size = 2
+    end
+  end
+  object DspEstado: TDataSetProvider
+    DataSet = SdsEstado
+    Options = [poAllowCommandText]
+    UpdateMode = upWhereKeyOnly
+    Left = 72
+    Top = 48
+  end
+  object dsCdsEstado: TClientDataSet
+    Aggregates = <>
+    CommandText = 
+      'select EST_CODIGO, EST_NOME, EST_PAI_CODIGO, EST_SIGLA from ESTA' +
+      'DO'
+    Params = <>
+    ProviderName = 'DspEstado'
+    Left = 72
+    Top = 104
+    object intgrfldCdsEstadoEST_CODIGO: TIntegerField
+      DisplayLabel = 'CODIGO'
+      FieldName = 'EST_CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object strngfldCdsEstadoEST_NOME: TStringField
+      DisplayLabel = 'NOME'
+      FieldName = 'EST_NOME'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+      Size = 60
+    end
+    object intgrfldCdsEstadoEST_PAI_CODIGO: TIntegerField
+      DisplayLabel = 'CODIGO PAIS'
+      FieldName = 'EST_PAI_CODIGO'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+    end
+    object strngfldCdsEstadoEST_SIGLA: TStringField
+      DisplayLabel = 'SIGLA'
+      FieldName = 'EST_SIGLA'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+      Size = 2
+    end
+  end
+end
