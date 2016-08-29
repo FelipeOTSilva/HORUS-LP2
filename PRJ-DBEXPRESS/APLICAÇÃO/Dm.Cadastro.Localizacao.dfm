@@ -155,6 +155,7 @@ object DmCadastroLocalizacao: TDmCadastroLocalizacao
       Size = 2
     end
     object dsCdsEstadoPAI_NOME: TStringField
+      DisplayLabel = 'PA'#205'S'
       FieldKind = fkLookup
       FieldName = 'PAI_NOME'
       LookupDataSet = dsCdsPais
@@ -225,7 +226,7 @@ object DmCadastroLocalizacao: TDmCadastroLocalizacao
       Required = True
     end
     object dsCdsCidadeCID_EST_CODIGO: TIntegerField
-      DisplayLabel = 'CODIGO ESTADO'
+      DisplayLabel = ' ESTADO'
       FieldName = 'CID_EST_CODIGO'
       ProviderFlags = [pfInUpdate]
       Required = True
@@ -237,11 +238,22 @@ object DmCadastroLocalizacao: TDmCadastroLocalizacao
       Required = True
     end
     object dsCdsCidadeCID_NOME: TStringField
-      DisplayLabel = 'NOME'
+      DisplayLabel = 'CIDADE'
       FieldName = 'CID_NOME'
       ProviderFlags = [pfInUpdate]
       Required = True
       Size = 60
+    end
+    object dsCdsCidadeEST_NOME: TStringField
+      FieldKind = fkLookup
+      FieldName = 'EST_NOME'
+      LookupDataSet = dsCdsEstado
+      LookupKeyFields = 'EST_CODIGO'
+      LookupResultField = 'EST_NOME'
+      KeyFields = 'CID_EST_CODIGO'
+      ProviderFlags = []
+      Size = 60
+      Lookup = True
     end
   end
 end

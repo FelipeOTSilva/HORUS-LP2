@@ -23,12 +23,15 @@ object Form1: TForm1
         Caption = 'Localiza'#231#227'o'
         object Pas1: TMenuItem
           Caption = 'Pa'#237's'
+          OnClick = Pas1Click
         end
         object Estado1: TMenuItem
           Caption = 'Estado'
+          OnClick = Estado1Click
         end
         object Cidade1: TMenuItem
           Caption = 'Cidade'
+          OnClick = Cidade1Click
         end
       end
     end

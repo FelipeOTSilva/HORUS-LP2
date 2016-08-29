@@ -42,6 +42,7 @@ type
     dsCdsCidadeCID_IBGE: TIntegerField;
     dsCdsCidadeCID_NOME: TStringField;
     dsCdsEstadoPAI_NOME: TStringField;
+    dsCdsCidadeEST_NOME: TStringField;
     procedure dsCdsPaisAfterPost(DataSet: TDataSet);
     procedure dsCdsPaisAfterDelete(DataSet: TDataSet);
     procedure dsCdsEstadoAfterDelete(DataSet: TDataSet);
@@ -65,17 +66,17 @@ implementation
 
 procedure TDmCadastroLocalizacao.dsCdsCidadeAfterDelete(DataSet: TDataSet);
 begin
-    DspCidade.ApplyUpdates(0);
+   dsCdsCidade.ApplyUpdates(0);
 end;
 
 procedure TDmCadastroLocalizacao.dsCdsCidadeAfterPost(DataSet: TDataSet);
 begin
-    DspCidade.ApplyUpdates(0);
+   dsCdsCidade.ApplyUpdates(0);
 end;
 
 procedure TDmCadastroLocalizacao.dsCdsEstadoAfterDelete(DataSet: TDataSet);
 begin
-  DspEstado.ApplyUpdates(0);
+  dsCdsEstado.ApplyUpdates(0);
 end;
 
 procedure TDmCadastroLocalizacao.dsCdsEstadoAfterPost(DataSet: TDataSet);

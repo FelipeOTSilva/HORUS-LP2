@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Frm.Pais, Frm.Estado, Frm.Cidade;
 
 type
   TForm1 = class(TForm)
@@ -14,6 +14,9 @@ type
     Pas1: TMenuItem;
     Estado1: TMenuItem;
     Cidade1: TMenuItem;
+    procedure Pas1Click(Sender: TObject);
+    procedure Estado1Click(Sender: TObject);
+    procedure Cidade1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -26,5 +29,44 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm1.Cidade1Click(Sender: TObject);
+var
+  vFrmCidade: TFrmCidade; //Variavel do tipo formulário do País
+begin
+  vFrmCidade := TFrmCidade.Create(nil); //Cria o formulário sem proprietarios
+  try
+      vFrmCidade.ShowModal; //Mostra o formulário na tela
+  finally
+      FreeAndNil(vFrmCidade);
+  end;
+
+end;
+
+procedure TForm1.Estado1Click(Sender: TObject);
+var
+  vFrmEstado: TFrmEstado; //Variavel do tipo formulário do País
+begin
+  vFrmEstado := TFrmEstado.Create(nil); //Cria o formulário sem proprietarios
+  try
+      vFrmEstado.ShowModal; //Mostra o formulário na tela
+  finally
+      FreeAndNil(vFrmEstado);
+  end;
+
+end;
+
+procedure TForm1.Pas1Click(Sender: TObject);
+var
+  vFrmPais: TFrmPais; //Variavel do tipo formulário do País
+begin
+  vFrmPais := TFrmPais.Create(nil); //Cria o formulário sem proprietarios
+  try
+      vFrmPais.ShowModal; //Mostra o formulário na tela
+  finally
+      FreeAndNil(vFrmPais);
+  end;
+
+end;
 
 end.

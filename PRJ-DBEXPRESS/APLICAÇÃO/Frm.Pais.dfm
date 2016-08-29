@@ -11,6 +11,8 @@ object FrmPais: TFrmPais
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   PixelsPerInch = 96
   TextHeight = 13
   object DBNavigator1: TDBNavigator
@@ -18,12 +20,13 @@ object FrmPais: TFrmPais
     Top = 0
     Width = 470
     Height = 41
+    DataSource = DsPais
     TabOrder = 0
   end
   object gbCodigo: TGroupBox
     Left = 8
     Top = 56
-    Width = 137
+    Width = 124
     Height = 49
     Caption = 'Codigo'
     TabOrder = 1
@@ -32,11 +35,13 @@ object FrmPais: TFrmPais
       Top = 24
       Width = 121
       Height = 21
+      DataField = 'PAI_CODIGO'
+      DataSource = DsPais
       TabOrder = 0
     end
   end
   object gbNome: TGroupBox
-    Left = 160
+    Left = 138
     Top = 56
     Width = 310
     Height = 49
@@ -47,12 +52,85 @@ object FrmPais: TFrmPais
       Top = 25
       Width = 304
       Height = 21
+      DataField = 'PAI_NOME'
+      DataSource = DsPais
       TabOrder = 0
     end
   end
-  object DataSource1: TDataSource
+  object gbSigla: TGroupBox
+    Left = 8
+    Top = 111
+    Width = 124
+    Height = 49
+    Caption = 'Sigla'
+    TabOrder = 3
+    object dbSigla: TDBEdit
+      Left = 3
+      Top = 25
+      Width = 121
+      Height = 21
+      DataField = 'PAI_SIGLA'
+      DataSource = DsPais
+      TabOrder = 0
+    end
+  end
+  object gpBacen: TGroupBox
+    Left = 138
+    Top = 111
+    Width = 119
+    Height = 46
+    Caption = 'BACEN'
+    TabOrder = 4
+    object DBEdit1: TDBEdit
+      Left = 3
+      Top = 22
+      Width = 113
+      Height = 21
+      DataField = 'PAI_BACEN'
+      DataSource = DsPais
+      TabOrder = 0
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 8
+    Top = 166
+    Width = 568
+    Height = 224
+    DataSource = DsPais
+    TabOrder = 5
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'PAI_CODIGO'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PAI_NOME'
+        Width = 238
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PAI_SIGLA'
+        Width = 99
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'PAI_BACEN'
+        Width = 144
+        Visible = True
+      end>
+  end
+  object DsPais: TDataSource
     DataSet = DmCadastroLocalizacao.dsCdsPais
-    Left = 240
-    Top = 192
+    Left = 488
+    Top = 88
   end
 end
