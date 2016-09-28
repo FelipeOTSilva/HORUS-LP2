@@ -1,0 +1,37 @@
+unit Dm.Movimentacao;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Dm.Database, Data.FMTBcd, Datasnap.DBClient,
+  Datasnap.Provider, Data.DB, Data.SqlExpr, Dm.Cadastro.Geral;
+
+type
+  TDmMovimentacao = class(TDataModule)
+    SdsVendas: TSQLDataSet;
+    DspVendas: TDataSetProvider;
+    CdsVendas: TClientDataSet;
+    SdsVendasVEN_CODIGO: TIntegerField;
+    SdsVendasVEN_DATA: TDateField;
+    SdsVendasVEN_OBS: TStringField;
+    SdsVendasVEN_CLI_CODIGO: TIntegerField;
+    CdsVendasVEN_CODIGO: TIntegerField;
+    CdsVendasVEN_DATA: TDateField;
+    CdsVendasVEN_OBS: TStringField;
+    CdsVendasVEN_CLI_CODIGO: TIntegerField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DmMovimentacao: TDmMovimentacao;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

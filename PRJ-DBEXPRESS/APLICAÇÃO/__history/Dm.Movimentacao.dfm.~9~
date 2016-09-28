@@ -1,0 +1,103 @@
+object DmMovimentacao: TDmMovimentacao
+  OldCreateOrder = False
+  Height = 203
+  Width = 256
+  object SdsVendas: TSQLDataSet
+    CommandText = 'select * from VENDA'
+    MaxBlobSize = -1
+    Params = <>
+    SQLConnection = DmDatabase.Conexao
+    Left = 16
+    Top = 8
+    object SdsVendasVEN_CODIGO: TIntegerField
+      DisplayLabel = 'CODIGO'
+      FieldName = 'VEN_CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object SdsVendasVEN_DATA: TDateField
+      DisplayLabel = 'DATA'
+      FieldName = 'VEN_DATA'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+    end
+    object SdsVendasVEN_OBS: TStringField
+      DisplayLabel = 'OBSERVA'#199#195'O'
+      FieldName = 'VEN_OBS'
+      ProviderFlags = [pfInUpdate]
+      Size = 500
+    end
+    object SdsVendasVEN_CLI_CODIGO: TIntegerField
+      DisplayLabel = 'CODIGO CLIENTE'
+      FieldName = 'VEN_CLI_CODIGO'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+    end
+  end
+  object DspVendas: TDataSetProvider
+    DataSet = SdsVendas
+    Options = [poAllowCommandText, poUseQuoteChar]
+    UpdateMode = upWhereKeyOnly
+    Left = 16
+    Top = 64
+  end
+  object CdsVendas: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    ProviderName = 'DspVendas'
+    AfterPost = CdsVendasAfterPost
+    AfterDelete = CdsVendasAfterDelete
+    Left = 16
+    Top = 120
+    object CdsVendasVEN_CODIGO: TIntegerField
+      DisplayLabel = 'CODIGO'
+      FieldName = 'VEN_CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object CdsVendasVEN_DATA: TDateField
+      DisplayLabel = 'DATA'
+      FieldName = 'VEN_DATA'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+    end
+    object CdsVendasVEN_OBS: TStringField
+      DisplayLabel = 'OBSERVA'#199#195'O'
+      FieldName = 'VEN_OBS'
+      ProviderFlags = [pfInUpdate]
+      Size = 500
+    end
+    object CdsVendasVEN_CLI_CODIGO: TIntegerField
+      DisplayLabel = 'CODIGO CLIENTE'
+      FieldName = 'VEN_CLI_CODIGO'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+    end
+    object CdsVendasNOME_CLI: TStringField
+      FieldKind = fkLookup
+      FieldName = 'NOME_CLI'
+      LookupDataSet = DmCadastroGeral.CdsCliente
+      LookupKeyFields = 'CLI_CODIGO'
+      LookupResultField = 'CLI_NOME'
+      KeyFields = 'VEN_CLI_CODIGO'
+      ProviderFlags = []
+      Size = 60
+      Lookup = True
+    end
+  end
+  object DsMestre: TDataSource
+    Left = 88
+    Top = 64
+  end
+  object SdsItem: TSQLDataSet
+    Params = <>
+    Left = 168
+    Top = 32
+  end
+  object CdsItem: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 168
+    Top = 104
+  end
+end

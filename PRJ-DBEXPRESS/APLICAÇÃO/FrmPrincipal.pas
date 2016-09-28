@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Frm.Pais, Frm.Estado, Frm.Cidade;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Frm.Pais, Frm.Estado, Frm.Cidade,Frm.Produto, Frm.Cliente,Frm.Venda;
 
 type
   TForm1 = class(TForm)
@@ -14,9 +14,17 @@ type
     Pas1: TMenuItem;
     Estado1: TMenuItem;
     Cidade1: TMenuItem;
+    Geral1: TMenuItem;
+    Produto1: TMenuItem;
+    Cliente1: TMenuItem;
+    Movimentao1: TMenuItem;
+    RealizaodeVenda1: TMenuItem;
     procedure Pas1Click(Sender: TObject);
     procedure Estado1Click(Sender: TObject);
     procedure Cidade1Click(Sender: TObject);
+    procedure Produto1Click(Sender: TObject);
+    procedure Cliente1Click(Sender: TObject);
+    procedure RealizaodeVenda1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,6 +51,19 @@ begin
 
 end;
 
+procedure TForm1.Cliente1Click(Sender: TObject);
+var
+  vFrmCliente: TFrmCliente; //Variavel do tipo formulário do País
+begin
+  vFrmCliente := TFrmCliente.Create(nil); //Cria o formulário sem proprietarios
+  try
+      vFrmCliente.ShowModal; //Mostra o formulário na tela
+  finally
+      FreeAndNil(vFrmCliente);
+  end;
+
+end;
+
 procedure TForm1.Estado1Click(Sender: TObject);
 var
   vFrmEstado: TFrmEstado; //Variavel do tipo formulário do País
@@ -65,6 +86,32 @@ begin
       vFrmPais.ShowModal; //Mostra o formulário na tela
   finally
       FreeAndNil(vFrmPais);
+  end;
+
+end;
+
+procedure TForm1.Produto1Click(Sender: TObject);
+var
+  vFrmProduto: TFrmProduto; //Variavel do tipo formulário do País
+begin
+  vFrmProduto := TFrmProduto.Create(nil); //Cria o formulário sem proprietarios
+  try
+      vFrmProduto.ShowModal; //Mostra o formulário na tela
+  finally
+      FreeAndNil(vFrmProduto);
+  end;
+
+end;
+procedure TForm1.RealizaodeVenda1Click(Sender: TObject);
+var
+  vFrmVenda: TFrmVenda; //Variavel do tipo formulário do País
+begin
+  vFrmVenda := TFrmVenda.Create(nil); //Cria o formulário sem proprietarios
+  try
+      vFrmVenda.ShowModal; //Mostra o formulário na tela
+  finally
+      FreeAndNil(vFrmVenda
+      );
   end;
 
 end;

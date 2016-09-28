@@ -1,0 +1,40 @@
+unit Frm.Cliente;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Vcl.ExtCtrls;
+
+type
+  TFrmCliente = class(TForm)
+    DBNavigator1: TDBNavigator;
+    gbCodigoCliente: TGroupBox;
+    dbCodigoCliente: TDBEdit;
+    gbNome: TGroupBox;
+    dbNomeCliente: TDBEdit;
+    gbCPFCNPJ: TGroupBox;
+    dbCPFCNPJCliente: TDBEdit;
+    gbEnderecoCliente: TGroupBox;
+    dbEndereco: TDBEdit;
+    gbBairro: TGroupBox;
+    dbBairro: TDBEdit;
+    gbCEP: TGroupBox;
+    dbCEP: TDBEdit;
+    gbCidade: TGroupBox;
+    DBLookupComboBox1: TDBLookupComboBox;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCliente: TFrmCliente;
+
+implementation
+
+{$R *.dfm}
+
+end.

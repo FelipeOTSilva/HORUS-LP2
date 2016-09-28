@@ -1,0 +1,30 @@
+unit Frm.Cidade;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Vcl.ExtCtrls;
+
+type
+  TFrmCidade = class(TForm)
+    DBNavigator1: TDBNavigator;
+    gpCodigoCidade: TGroupBox;
+    dbCodigoCidade: TDBEdit;
+    gbNomeCidade: TGroupBox;
+    dbNomeCidade: TDBEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCidade: TFrmCidade;
+
+implementation
+
+{$R *.dfm}
+
+end.

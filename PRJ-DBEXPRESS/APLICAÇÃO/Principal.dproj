@@ -77,12 +77,8 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="FrmPrincipal.pas">
-            <Form>Form1</Form>
-            <FormType>dfm</FormType>
-        </DCCReference>
-        <DCCReference Include="Dm.Database.pas">
-            <Form>DmDatabase</Form>
+        <DCCReference Include="Dm.Cadastro.Geral.pas">
+            <Form>DmCadastroGeral</Form>
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
@@ -91,16 +87,42 @@
             <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="Frm.Pais.pas">
-            <Form>FrmPais</Form>
+        <DCCReference Include="Dm.Database.pas">
+            <Form>DmDatabase</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Dm.Movimentacao.pas">
+            <Form>DmMovimentacao</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="Frm.Cidade.pas">
+            <Form>FrmCidade</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frm.Cliente.pas">
+            <Form>FrmCliente</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Frm.Estado.pas">
             <Form>FrmEstado</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Frm.Cidade.pas">
-            <Form>FrmCidade</Form>
+        <DCCReference Include="Frm.Pais.pas">
+            <Form>FrmPais</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frm.Produto.pas">
+            <Form>FrmProduto</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="Frm.Venda.pas">
+            <Form>FrmVenda</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="FrmPrincipal.pas">
+            <Form>Form1</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

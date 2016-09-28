@@ -34,6 +34,24 @@ object Form1: TForm1
           OnClick = Cidade1Click
         end
       end
+      object Geral1: TMenuItem
+        Caption = 'Geral'
+        object Produto1: TMenuItem
+          Caption = 'Produto'
+          OnClick = Produto1Click
+        end
+        object Cliente1: TMenuItem
+          Caption = 'Cliente'
+          OnClick = Cliente1Click
+        end
+      end
+    end
+    object Movimentao1: TMenuItem
+      Caption = 'Movimenta'#231#227'o'
+      object RealizaodeVenda1: TMenuItem
+        Caption = 'Realiza'#231#227'o de Venda'
+        OnClick = RealizaodeVenda1Click
+      end
     end
   end
 end

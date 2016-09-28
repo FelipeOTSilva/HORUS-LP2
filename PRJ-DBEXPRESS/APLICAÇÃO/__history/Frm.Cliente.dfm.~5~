@@ -1,0 +1,53 @@
+object FrmCliente: TFrmCliente
+  Left = 0
+  Top = 0
+  Caption = 'Cadastro de Cliente'
+  ClientHeight = 442
+  ClientWidth = 786
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object DBNavigator1: TDBNavigator
+    Left = 0
+    Top = 0
+    Width = 500
+    Height = 49
+    TabOrder = 0
+  end
+  object gbCodigoCliente: TGroupBox
+    Left = 0
+    Top = 55
+    Width = 121
+    Height = 42
+    Caption = 'Codigo'
+    TabOrder = 1
+    object dbCodigoCliente: TDBEdit
+      Left = 10
+      Top = 18
+      Width = 108
+      Height = 21
+      TabOrder = 0
+    end
+  end
+  object gbNome: TGroupBox
+    Left = 124
+    Top = 55
+    Width = 185
+    Height = 42
+    Caption = 'Nome'
+    TabOrder = 2
+    object dbNomeCliente: TDBEdit
+      Left = 3
+      Top = 18
+      Width = 179
+      Height = 21
+      TabOrder = 0
+    end
+  end
+end

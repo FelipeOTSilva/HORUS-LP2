@@ -1,0 +1,29 @@
+unit Dm.Movimentacao;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Dm.Database, Data.FMTBcd, Datasnap.DBClient,
+  Datasnap.Provider, Data.DB, Data.SqlExpr;
+
+type
+  TDmMovimentacao = class(TDataModule)
+    SdsVendas: TSQLDataSet;
+    DspVendas: TDataSetProvider;
+    CdsVendas: TClientDataSet;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DmMovimentacao: TDmMovimentacao;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.
