@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2016/06/02 19:08:35.000.351,=C:\Users\Felipe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/06/16 19:57:41.000.311,=C:\Users\Felipe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/06/16 20:37:23.000.995,=C:\Users\Felipe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/09/28 20:17:35.000.185,=C:\Users\Felipe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/09/28 20:19:25.000.614,=C:\Users\Felipe\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2016/09/28 20:22:03.000.226,C:\Users\Felipe\Desktop\Arquivos Pendrive\Horus\4ºSemestre\Linguagem de Programação II\HORUS-LP2\FIREDAC\Principal.pas=C:\Users\Felipe\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2016/09/28 20:22:03.000.226,C:\Users\Felipe\Desktop\Arquivos Pendrive\Horus\4ºSemestre\Linguagem de Programação II\HORUS-LP2\FIREDAC\Principal.dfm=C:\Users\Felipe\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>2016/09/28 20:29:51.000.289,=C:\Users\Felipe\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2016/09/28 20:30:41.000.148,C:\Users\Felipe\Desktop\Arquivos Pendrive\Horus\4ºSemestre\Linguagem de Programação II\HORUS-LP2\FIREDAC\Frm.Proprietarios.pas=C:\Users\Felipe\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2016/09/28 20:30:41.000.148,C:\Users\Felipe\Desktop\Arquivos Pendrive\Horus\4ºSemestre\Linguagem de Programação II\HORUS-LP2\FIREDAC\Frm.Proprietarios.dfm=C:\Users\Felipe\Documents\Embarcadero\Studio\Projects\Unit2.dfm</Transaction>
+    <Transaction>2016/09/28 21:12:28.000.021,C:\Users\Felipe\Desktop\Arquivos Pendrive\Horus\4ºSemestre\Linguagem de Programação II\HORUS-LP2\FIREDAC\Frm.Menu.dfm=C:\Users\Felipe\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2016/09/28 21:12:28.000.021,C:\Users\Felipe\Desktop\Arquivos Pendrive\Horus\4ºSemestre\Linguagem de Programação II\HORUS-LP2\FIREDAC\Frm.Menu.pas=C:\Users\Felipe\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2016/09/28 21:43:31.000.144,C:\Users\Felipe\Desktop\Arquivos Pendrive\Horus\4ºSemestre\Linguagem de Programação II\HORUS-LP2\FIREDAC\FireDac.dproj=C:\Users\Felipe\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2016/09/28 21:58:18.000.625,=C:\Users\Felipe\Desktop\Arquivos Pendrive\Horus\4ºSemestre\Linguagem de Programação II\HORUS-LP2\FIREDAC\Unit2.pas</Transaction>
+    <Transaction>2016/09/28 21:58:39.000.691,C:\Users\Felipe\Desktop\Arquivos Pendrive\Horus\4ºSemestre\Linguagem de Programação II\HORUS-LP2\FIREDAC\Unit2.pas=C:\Users\Felipe\Desktop\Arquivos Pendrive\Horus\4ºSemestre\Linguagem de Programação II\HORUS-LP2\FIREDAC\Frm.VeiculoMultas.pas</Transaction>
+    <Transaction>2016/09/28 21:58:39.000.691,C:\Users\Felipe\Desktop\Arquivos Pendrive\Horus\4ºSemestre\Linguagem de Programação II\HORUS-LP2\FIREDAC\Unit2.dfm=C:\Users\Felipe\Desktop\Arquivos Pendrive\Horus\4ºSemestre\Linguagem de Programação II\HORUS-LP2\FIREDAC\Frm.VeiculoMultas.dfm</Transaction>
+  </Transactions>
+</BorlandProject>

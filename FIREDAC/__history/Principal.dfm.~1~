@@ -1,0 +1,18 @@
+object DataModule2: TDataModule2
+  OldCreateOrder = False
+  Height = 150
+  Width = 215
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      
+        'Database=C:\Users\Felipe\Desktop\Arquivos Pendrive\Horus\4'#186'Semes' +
+        'tre\Linguagem de Programa'#231#227'o II\HORUS-LP2\FIREDAC\FIREDAC.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'DriverID=FB')
+    Connected = True
+    LoginPrompt = False
+    Left = 24
+    Top = 16
+  end
+end

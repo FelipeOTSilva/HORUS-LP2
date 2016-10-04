@@ -1,0 +1,101 @@
+object DataModule2: TDataModule2
+  OldCreateOrder = False
+  Height = 210
+  Width = 410
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      
+        'Database=C:\Users\Felipe\Desktop\Arquivos Pendrive\Horus\4'#186'Semes' +
+        'tre\Linguagem de Programa'#231#227'o II\HORUS-LP2\FIREDAC\FIREDAC.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'DriverID=FB')
+    Connected = True
+    LoginPrompt = False
+    Left = 24
+    Top = 16
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 112
+    Top = 16
+  end
+  object FDPhysFBDriverLink1: TFDPhysFBDriverLink
+    Left = 216
+    Top = 16
+  end
+  object QryProprietario: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'SELECT PROPRIETARIO.PRP_CODIGO,'
+      'PROPRIETARIO.PRP_NOME,'
+      'PROPRIETARIO.PRP_ENDERECO'
+      'FROM PROPRIETARIO')
+    Left = 32
+    Top = 80
+    object QryProprietarioPRP_CODIGO: TIntegerField
+      DisplayLabel = 'CODIGO'
+      FieldName = 'PRP_CODIGO'
+      Origin = 'PRP_CODIGO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryProprietarioPRP_NOME: TStringField
+      DisplayLabel = 'NOME'
+      FieldName = 'PRP_NOME'
+      Origin = 'PRP_NOME'
+      ProviderFlags = [pfInUpdate]
+      Required = True
+      Size = 60
+    end
+    object QryProprietarioPRP_ENDERECO: TStringField
+      DisplayLabel = 'ENDERECO'
+      FieldName = 'PRP_ENDERECO'
+      Origin = 'PRP_ENDERECO'
+      ProviderFlags = [pfInUpdate]
+      Size = 100
+    end
+  end
+  object QryVeiculo: TFDQuery
+    Connection = FDConnection1
+    SQL.Strings = (
+      'SELECT VEICULO.VEI_CODIGO,'
+      'VEICULO.VEI_PLACA,'
+      'VEICULO.VEI_MARCA,'
+      'VEICULO.VEI_MODELO,'
+      'VEICULO.VEI_ANO,'
+      'VEICULO.PRP_CODIGO'
+      'FROM VEICULO')
+    Left = 112
+    Top = 80
+  end
+  object QryMultas: TFDQuery
+    AfterInsert = QryMultasAfterInsert
+    MasterSource = DsMestreVeiculo
+    Connection = FDConnection1
+    SQL.Strings = (
+      'SELECT MULTAS.VEI_CODIGO,'
+      'MULTAS.MLT_ITEM,'
+      'MULTAS.MLT_DATA,'
+      'MULTAS.MLT_HORA,'
+      'MULTAS.MLT_VALOR,'
+      'MULTAS.MLT_LOCAL'
+      'FROM MULTAS'
+      'WHERE'
+      '(MULTAS.VEI_CODIGO = :VEI_CODIGO)')
+    Left = 128
+    Top = 160
+    ParamData = <
+      item
+        Name = 'VEI_CODIGO'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+  end
+  object DsMestreVeiculo: TDataSource
+    DataSet = QryVeiculo
+    Left = 224
+    Top = 88
+  end
+end

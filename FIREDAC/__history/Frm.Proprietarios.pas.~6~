@@ -1,0 +1,32 @@
+unit Frm.Proprietarios;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs,Principal, Vcl.StdCtrls, Vcl.Mask,
+  Vcl.DBCtrls, Vcl.ExtCtrls;
+
+type
+  TFrmProprietario = class(TForm)
+    DBNavigator1: TDBNavigator;
+    Label1: TLabel;
+    dbedtCodigo: TDBEdit;
+    Label2: TLabel;
+    dbedtNome: TDBEdit;
+    Label3: TLabel;
+    dbedtEndereco: TDBEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmProprietario: TFrmProprietario;
+
+implementation
+
+{$R *.dfm}
+
+end.
