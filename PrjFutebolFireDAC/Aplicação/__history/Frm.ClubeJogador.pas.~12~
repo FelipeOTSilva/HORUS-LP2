@@ -1,0 +1,84 @@
+unit Frm.ClubeJogador;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids, Data.DB;
+
+type
+  TFrmClubeJogador = class(TForm)
+    DBNavigator1: TDBNavigator;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    Label2: TLabel;
+    dbedtNomeClube: TDBEdit;
+    Label3: TLabel;
+    dbedtNomeEstadio: TDBEdit;
+    Label4: TLabel;
+    dbedtDataFundacao: TDBEdit;
+    Label5: TLabel;
+    dbcbbPais: TDBLookupComboBox;
+    Label6: TLabel;
+    dbcbbTatica: TDBLookupComboBox;
+    Label7: TLabel;
+    dbcbbTecnico: TDBLookupComboBox;
+    DBGrid1: TDBGrid;
+    DBNavigator2: TDBNavigator;
+    Label8: TLabel;
+    DBEdit2: TDBEdit;
+    Label9: TLabel;
+    dbedtNomeJogador: TDBEdit;
+    Label10: TLabel;
+    dbedtPosicao: TDBEdit;
+    Label11: TLabel;
+    dbedtIdadeJogador: TDBEdit;
+    Label12: TLabel;
+    dbedtLado: TDBEdit;
+    Label13: TLabel;
+    dbedtTitular: TDBEdit;
+    Label14: TLabel;
+    dbedtCaracteristicas: TDBEdit;
+    Label15: TLabel;
+    dbcbbPaisJogador: TDBLookupComboBox;
+    DBGrid2: TDBGrid;
+    DsClube: TDataSource;
+    DsJogador: TDataSource;
+    DsTatica: TDataSource;
+    DsTecnico: TDataSource;
+    DsPais: TDataSource;
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmClubeJogador: TFrmClubeJogador;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFrmClubeJogador.FormCreate(Sender: TObject);
+begin
+  Dm.Acesso.DmAcesso.QryClube.Open;
+  Dm.Acesso.DmAcesso.QryJogador.Open;
+  Dm.Acesso.DmAcesso.QryPais.Open;
+  Dm.Acesso.DmAcesso.QryTecnico.Open;
+  Dm.Acesso.DmAcesso.QryTatica.Open;
+end;
+
+procedure TFrmClubeJogador.FormDestroy(Sender: TObject);
+begin
+  Dm.Acesso.DmAcesso.QryClube.Close;
+  Dm.Acesso.DmAcesso.QryJogador.Close;
+  Dm.Acesso.DmAcesso.QryPais.Close;
+  Dm.Acesso.DmAcesso.QryTecnico.Close;
+  Dm.Acesso.DmAcesso.QryTatica.Close;
+end;
+
+end.

@@ -1,0 +1,40 @@
+object FrmPrincipal: TFrmPrincipal
+  Left = 0
+  Top = 0
+  Caption = 'FrmPrincipal'
+  ClientHeight = 201
+  ClientWidth = 447
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object MainMenu1: TMainMenu
+    Left = 112
+    Top = 48
+    object Cadastro1: TMenuItem
+      Caption = 'Cadastro'
+      object Pas1: TMenuItem
+        Caption = 'Pa'#237's'
+        OnClick = Pas1Click
+      end
+      object atica1: TMenuItem
+        Caption = 'Tatica'
+        OnClick = atica1Click
+      end
+      object ecnico1: TMenuItem
+        Caption = 'Tecnico'
+        OnClick = ecnico1Click
+      end
+      object ClubeJogador1: TMenuItem
+        Caption = 'Clube/Jogador'
+        OnClick = ClubeJogador1Click
+      end
+    end
+  end
+end

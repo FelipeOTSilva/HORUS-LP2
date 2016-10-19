@@ -1,0 +1,28 @@
+unit Frm.CadastroPais;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TFrmCadastroPais = class(TForm)
+    Label1: TLabel;
+    dbedtCodigo: TDBEdit;
+    Label2: TLabel;
+    dbedtPais: TDBEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmCadastroPais: TFrmCadastroPais;
+
+implementation
+
+{$R *.dfm}
+
+end.

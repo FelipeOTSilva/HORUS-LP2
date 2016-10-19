@@ -1,0 +1,34 @@
+object DmConexao: TDmConexao
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 373
+  Width = 581
+  object FDConnection: TFDConnection
+    Params.Strings = (
+      'Database=C:\PrjFutebolFireDAC\Dados\FUTEBOL.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'DriverID=FB')
+    Connected = True
+    LoginPrompt = False
+    Left = 49
+    Top = 64
+  end
+  object FDGUIxWaitCursor: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 160
+    Top = 64
+  end
+  object FDPhysODBCDriverLink: TFDPhysODBCDriverLink
+    Left = 280
+    Top = 65
+  end
+  object FDMoniFlatFileClientLink1: TFDMoniFlatFileClientLink
+    FileName = 'C:\PrjFutebolFireDAC\Logs\Log.txt'
+    FileAppend = True
+    FileColumns = [tiRefNo, tiTime, tiThreadID, tiClassName, tiObjID, tiMsgText]
+    Tracing = True
+    Left = 408
+    Top = 64
+  end
+end

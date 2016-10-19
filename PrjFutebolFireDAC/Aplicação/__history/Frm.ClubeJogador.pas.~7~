@@ -1,0 +1,46 @@
+unit Frm.ClubeJogador;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls,
+  Vcl.ExtCtrls, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TFrmClubeJogador = class(TForm)
+    DBNavigator1: TDBNavigator;
+    Label1: TLabel;
+    DBEdit1: TDBEdit;
+    Label2: TLabel;
+    dbedtNomeClube: TDBEdit;
+    Label3: TLabel;
+    dbedtNomeEstadio: TDBEdit;
+    Label4: TLabel;
+    dbedtDataFundacao: TDBEdit;
+    Label5: TLabel;
+    dbcbbPais: TDBLookupComboBox;
+    Label6: TLabel;
+    dbcbbTatica: TDBLookupComboBox;
+    Label7: TLabel;
+    dbcbbTecnico: TDBLookupComboBox;
+    DBGrid1: TDBGrid;
+    DBNavigator2: TDBNavigator;
+    Label8: TLabel;
+    DBEdit2: TDBEdit;
+    Label9: TLabel;
+    DBEdit3: TDBEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FrmClubeJogador: TFrmClubeJogador;
+
+implementation
+
+{$R *.dfm}
+
+end.
